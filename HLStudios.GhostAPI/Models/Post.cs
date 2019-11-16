@@ -16,6 +16,8 @@ namespace HLStudios.GhostAPI.Models
         public string Title { get; set; }
         [JsonPropertyName("html")] 
         public string Html { get; set; }
+        [JsonPropertyName("plaintext")] 
+        public string PlainText { get; set; }
         [JsonPropertyName("comment_id")] 
         public string CommentId { get; set; }
         [JsonPropertyName("feature_image")] 
