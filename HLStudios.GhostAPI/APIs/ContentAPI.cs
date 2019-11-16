@@ -215,6 +215,16 @@ namespace HLStudios.GhostAPI.APIs
             return authorList.Authors[0];
         }
 
+        public async Task<Settings> ReadSettingsAsync()
+        {
+            var requestUri = new StringBuilder();
+            
+            requestUri.Append($"/ghost/api/v3/content/settings/?key={_apiKey}");
+
+            var settingsRoot = await GetRequestAsync<SettingsRoot>(requestUri);
+            return settingsRoot.Settings;
+        }
+
         private async Task<T> GetRequestAsync<T>(StringBuilder requestUri)
         {
             try
@@ -226,7 +236,7 @@ namespace HLStudios.GhostAPI.APIs
                 response.EnsureSuccessStatusCode();
 
                 var ghostResponse = JsonSerializer.Deserialize<T>(await response.Content.ReadAsStringAsync());
-
+                
                 return ghostResponse;
             }
             catch (HttpRequestException ex)
