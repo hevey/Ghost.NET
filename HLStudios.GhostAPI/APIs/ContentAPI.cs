@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Text.Json;
@@ -29,17 +30,13 @@ namespace HLStudios.GhostAPI.APIs
 
             if (options != null)
             {
-                // Adds optional request information to the call.
-                requestUri.Append(options.Include == IncludeEnum.AuthorsAndTags ? "&include=tags,authors" : "");
-                requestUri.Append(options.Include == IncludeEnum.Tags ? "&include=tags" : "");
-                requestUri.Append(options.Include == IncludeEnum.Authors ? "&include=authors" : "");
-
-                requestUri.Append(options.Format == FormatEnum.PlainText ? "&formats=plaintext" : "");
-                requestUri.Append(options.Format == FormatEnum.Html ? "&formats=html" : "");
-                requestUri.Append(options.Format == FormatEnum.HtmlAndPlainText ? "&formats=html,plaintext" : "");
-
-                requestUri.Append(options.Page != string.Empty ? $"&page={options.Page}" : "");
-                requestUri.Append(options.Limit != string.Empty ? $"&limit={options.Limit}" : "");
+                requestUri.Append(options.Include != Include.None ? 
+                    $"&include={options.Include.ToString().Replace(" ", string.Empty)}" : string.Empty);
+                requestUri.Append(options.Format != Format.None ? 
+                    $"&formats={options.Format.ToString().Replace(" ", string.Empty)}" : string.Empty);
+                
+                requestUri.Append(options.Page != string.Empty ? $"&page={options.Page}" : string.Empty);
+                requestUri.Append(options.Limit != string.Empty ? $"&limit={options.Limit}" : string.Empty);
             }
 
             return await GetRequestAsync<PostList>(requestUri);
@@ -54,17 +51,14 @@ namespace HLStudios.GhostAPI.APIs
             if (options != null)
             {
                 // Adds optional request information to the call.
-                requestUri.Append(options.Include == IncludeEnum.AuthorsAndTags ? "&include=tags,authors" : "");
-                requestUri.Append(options.Include == IncludeEnum.Tags ? "&include=tags" : "");
-                requestUri.Append(options.Include == IncludeEnum.Authors ? "&include=authors" : "");
-
-                requestUri.Append(options.Format == FormatEnum.PlainText ? "&formats=plaintext" : "");
-                requestUri.Append(options.Format == FormatEnum.Html ? "&formats=html" : "");
-                requestUri.Append(options.Format == FormatEnum.HtmlAndPlainText ? "&formats=html,plaintext" : "");
+                requestUri.Append(options.Include != Include.None ? 
+                    $"&include={options.Include.ToString().Replace(" ", string.Empty)}" : string.Empty);
+                requestUri.Append(options.Format != Format.None ? 
+                    $"&formats={options.Format.ToString().Replace(" ", string.Empty)}" : string.Empty);
             }
 
             var postList = await GetRequestAsync<PostList>(requestUri);
-            return postList.Posts[0];
+            return postList.Posts.SingleOrDefault();
         }
         
         public async Task<Post> ReadPostBySlugAsync(string slug, PostOptions options = null)
@@ -76,17 +70,14 @@ namespace HLStudios.GhostAPI.APIs
             if (options != null)
             {
                 // Adds optional request information to the call.
-                requestUri.Append(options.Include == IncludeEnum.AuthorsAndTags ? "&include=tags,authors" : "");
-                requestUri.Append(options.Include == IncludeEnum.Tags ? "&include=tags" : "");
-                requestUri.Append(options.Include == IncludeEnum.Authors ? "&include=authors" : "");
-
-                requestUri.Append(options.Format == FormatEnum.PlainText ? "&formats=plaintext" : "");
-                requestUri.Append(options.Format == FormatEnum.Html ? "&formats=html" : "");
-                requestUri.Append(options.Format == FormatEnum.HtmlAndPlainText ? "&formats=html,plaintext" : "");
+                requestUri.Append(options.Include != Include.None ? 
+                    $"&include={options.Include.ToString().Replace(" ", string.Empty)}" : string.Empty);
+                requestUri.Append(options.Format != Format.None ? 
+                    $"&formats={options.Format.ToString().Replace(" ", string.Empty)}" : string.Empty);
             }
 
             var postList = await GetRequestAsync<PostList>(requestUri);
-            return postList.Posts[0];
+            return postList.Posts.SingleOrDefault();
         }
         
         public async Task<PageList> BrowsePageAsync(PageOptions options = null)
@@ -98,16 +89,13 @@ namespace HLStudios.GhostAPI.APIs
             if (options != null)
             {
                 // Adds optional request information to the call.
-                requestUri.Append(options.Include == IncludeEnum.AuthorsAndTags ? "&include=tags,authors" : "");
-                requestUri.Append(options.Include == IncludeEnum.Tags ? "&include=tags" : "");
-                requestUri.Append(options.Include == IncludeEnum.Authors ? "&include=authors" : "");
+                requestUri.Append(options.Include != Include.None ? 
+                    $"&include={options.Include.ToString().Replace(" ", string.Empty)}" : string.Empty);
+                requestUri.Append(options.Format != Format.None ? 
+                    $"&formats={options.Format.ToString().Replace(" ", string.Empty)}" : string.Empty);
 
-                requestUri.Append(options.Format == FormatEnum.PlainText ? "&formats=plaintext" : "");
-                requestUri.Append(options.Format == FormatEnum.Html ? "&formats=html" : "");
-                requestUri.Append(options.Format == FormatEnum.HtmlAndPlainText ? "&formats=html,plaintext" : "");
-
-                requestUri.Append(options.Page != string.Empty ? $"&page={options.Page}" : "");
-                requestUri.Append(options.Limit != string.Empty ? $"&limit={options.Limit}" : "");
+                requestUri.Append(options.Page != string.Empty ? $"&page={options.Page}" : string.Empty);
+                requestUri.Append(options.Limit != string.Empty ? $"&limit={options.Limit}" : string.Empty);
             }
 
             return await GetRequestAsync<PageList>(requestUri);
@@ -122,17 +110,14 @@ namespace HLStudios.GhostAPI.APIs
             if (options != null)
             {
                 // Adds optional request information to the call.
-                requestUri.Append(options.Include == IncludeEnum.AuthorsAndTags ? "&include=tags,authors" : "");
-                requestUri.Append(options.Include == IncludeEnum.Tags ? "&include=tags" : "");
-                requestUri.Append(options.Include == IncludeEnum.Authors ? "&include=authors" : "");
-
-                requestUri.Append(options.Format == FormatEnum.PlainText ? "&formats=plaintext" : "");
-                requestUri.Append(options.Format == FormatEnum.Html ? "&formats=html" : "");
-                requestUri.Append(options.Format == FormatEnum.HtmlAndPlainText ? "&formats=html,plaintext" : "");
+                requestUri.Append(options.Include != Include.None ? 
+                    $"&include={options.Include.ToString().Replace(" ", string.Empty)}" : string.Empty);
+                requestUri.Append(options.Format != Format.None ? 
+                    $"&formats={options.Format.ToString().Replace(" ", string.Empty)}" : string.Empty);
             }
 
             var pageList = await GetRequestAsync<PageList>(requestUri);
-            return pageList.Pages[0];
+            return pageList.Pages.SingleOrDefault();
         }
         
         public async Task<Page> ReadPageBySlugAsync(string slug, PageOptions options = null)
@@ -144,17 +129,14 @@ namespace HLStudios.GhostAPI.APIs
             if (options != null)
             {
                 // Adds optional request information to the call.
-                requestUri.Append(options.Include == IncludeEnum.AuthorsAndTags ? "&include=tags,authors" : "");
-                requestUri.Append(options.Include == IncludeEnum.Tags ? "&include=tags" : "");
-                requestUri.Append(options.Include == IncludeEnum.Authors ? "&include=authors" : "");
-
-                requestUri.Append(options.Format == FormatEnum.PlainText ? "&formats=plaintext" : "");
-                requestUri.Append(options.Format == FormatEnum.Html ? "&formats=html" : "");
-                requestUri.Append(options.Format == FormatEnum.HtmlAndPlainText ? "&formats=html,plaintext" : "");
+                requestUri.Append(options.Include != Include.None ? 
+                    $"&include={options.Include.ToString().Replace(" ", string.Empty)}" : string.Empty);
+                requestUri.Append(options.Format != Format.None ? 
+                    $"&formats={options.Format.ToString().Replace(" ", string.Empty)}" : string.Empty);
             }
             
             var pageList = await GetRequestAsync<PageList>(requestUri);
-            return pageList.Pages[0];
+            return pageList.Pages.SingleOrDefault();
         }
         
         public async Task<TagList> BrowseTagsAsync()
@@ -173,7 +155,7 @@ namespace HLStudios.GhostAPI.APIs
             requestUri.Append($"/ghost/api/v3/content/tags/{id}/?key={_apiKey}");
 
             var tagList = await GetRequestAsync<TagList>(requestUri);
-            return tagList.Tags[0];
+            return tagList.Tags.SingleOrDefault();
         }
         
         public async Task<Tag> ReadTagBySlugAsync(string slug)
@@ -183,7 +165,7 @@ namespace HLStudios.GhostAPI.APIs
             requestUri.Append($"/ghost/api/v3/content/tags/slug/{slug}/?key={_apiKey}");
 
             var tagList = await GetRequestAsync<TagList>(requestUri);
-            return tagList.Tags[0];
+            return tagList.Tags.SingleOrDefault();
         }
         
         public async Task<AuthorList> BrowseAuthorsAsync()
@@ -202,7 +184,7 @@ namespace HLStudios.GhostAPI.APIs
             requestUri.Append($"/ghost/api/v3/content/authors/{id}/?key={_apiKey}");
 
             var authorList = await GetRequestAsync<AuthorList>(requestUri);
-            return authorList.Authors[0];
+            return authorList.Authors.SingleOrDefault();
         }
         
         public async Task<Author> ReadAuthorBySlugAsync(string slug)
@@ -212,7 +194,7 @@ namespace HLStudios.GhostAPI.APIs
             requestUri.Append($"/ghost/api/v3/content/authors/slug/{slug}/?key={_apiKey}");
 
             var authorList = await GetRequestAsync<AuthorList>(requestUri);
-            return authorList.Authors[0];
+            return authorList.Authors.SingleOrDefault();
         }
 
         public async Task<Settings> ReadSettingsAsync()
