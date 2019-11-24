@@ -6,6 +6,7 @@ using System.Text.Json;
 using System.Threading.Tasks;
 using HLStudios.GhostAPI.Enums;
 using HLStudios.GhostAPI.Models;
+using HLStudios.GhostAPI.Utilities;
 
 namespace HLStudios.GhostAPI.APIs
 {
@@ -31,9 +32,9 @@ namespace HLStudios.GhostAPI.APIs
             if (options != null)
             {
                 requestUri.Append(options.Include != Include.None ? 
-                    $"&include={options.Include.ToString().Replace(" ", string.Empty)}" : string.Empty);
+                    $"&include={options.Include.GetDescriptions()}" : string.Empty);
                 requestUri.Append(options.Format != Format.None ? 
-                    $"&formats={options.Format.ToString().Replace(" ", string.Empty)}" : string.Empty);
+                    $"&formats={options.Format.GetDescriptions()}" : string.Empty);
                 
                 requestUri.Append(options.Page != string.Empty ? $"&page={options.Page}" : string.Empty);
                 requestUri.Append(options.Limit != string.Empty ? $"&limit={options.Limit}" : string.Empty);
@@ -52,9 +53,9 @@ namespace HLStudios.GhostAPI.APIs
             {
                 // Adds optional request information to the call.
                 requestUri.Append(options.Include != Include.None ? 
-                    $"&include={options.Include.ToString().Replace(" ", string.Empty)}" : string.Empty);
+                    $"&include={options.Include.GetDescriptions()}" : string.Empty);
                 requestUri.Append(options.Format != Format.None ? 
-                    $"&formats={options.Format.ToString().Replace(" ", string.Empty)}" : string.Empty);
+                    $"&formats={options.Format.GetDescriptions()}" : string.Empty);
             }
 
             var postList = await GetRequestAsync<PostList>(requestUri);
@@ -71,9 +72,9 @@ namespace HLStudios.GhostAPI.APIs
             {
                 // Adds optional request information to the call.
                 requestUri.Append(options.Include != Include.None ? 
-                    $"&include={options.Include.ToString().Replace(" ", string.Empty)}" : string.Empty);
+                    $"&include={options.Include.GetDescriptions()}" : string.Empty);
                 requestUri.Append(options.Format != Format.None ? 
-                    $"&formats={options.Format.ToString().Replace(" ", string.Empty)}" : string.Empty);
+                    $"&formats={options.Format.GetDescriptions()}" : string.Empty);
             }
 
             var postList = await GetRequestAsync<PostList>(requestUri);
@@ -90,9 +91,9 @@ namespace HLStudios.GhostAPI.APIs
             {
                 // Adds optional request information to the call.
                 requestUri.Append(options.Include != Include.None ? 
-                    $"&include={options.Include.ToString().Replace(" ", string.Empty)}" : string.Empty);
+                    $"&include={options.Include.GetDescriptions()}" : string.Empty);
                 requestUri.Append(options.Format != Format.None ? 
-                    $"&formats={options.Format.ToString().Replace(" ", string.Empty)}" : string.Empty);
+                    $"&formats={options.Format.GetDescriptions()}" : string.Empty);
 
                 requestUri.Append(options.Page != string.Empty ? $"&page={options.Page}" : string.Empty);
                 requestUri.Append(options.Limit != string.Empty ? $"&limit={options.Limit}" : string.Empty);
@@ -111,9 +112,9 @@ namespace HLStudios.GhostAPI.APIs
             {
                 // Adds optional request information to the call.
                 requestUri.Append(options.Include != Include.None ? 
-                    $"&include={options.Include.ToString().Replace(" ", string.Empty)}" : string.Empty);
+                    $"&include={options.Include.GetDescriptions()}" : string.Empty);
                 requestUri.Append(options.Format != Format.None ? 
-                    $"&formats={options.Format.ToString().Replace(" ", string.Empty)}" : string.Empty);
+                    $"&formats={options.Format.GetDescriptions()}" : string.Empty);
             }
 
             var pageList = await GetRequestAsync<PageList>(requestUri);
@@ -130,9 +131,9 @@ namespace HLStudios.GhostAPI.APIs
             {
                 // Adds optional request information to the call.
                 requestUri.Append(options.Include != Include.None ? 
-                    $"&include={options.Include.ToString().Replace(" ", string.Empty)}" : string.Empty);
+                    $"&include={options.Include.GetDescriptions()}" : string.Empty);
                 requestUri.Append(options.Format != Format.None ? 
-                    $"&formats={options.Format.ToString().Replace(" ", string.Empty)}" : string.Empty);
+                    $"&formats={options.Format.GetDescriptions()}" : string.Empty);
             }
             
             var pageList = await GetRequestAsync<PageList>(requestUri);
