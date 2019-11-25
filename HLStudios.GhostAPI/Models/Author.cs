@@ -30,5 +30,7 @@ namespace HLStudios.GhostAPI.Models
         public string MetaDescription { get; set; }
         [JsonPropertyName("url")] 
         public string Url { get; set; }
+        [JsonPropertyName("count")] 
+        public string Count { get; set; }
     }
 }

@@ -47,9 +47,9 @@ namespace HLStudios.GhostAPI.Models
         [JsonPropertyName("authors")] 
         public IList<Author> Authors { get; set; }
         [JsonPropertyName("primary_author")] 
-        public Author Author { get; set; }
+        public Author PrimaryAuthor { get; set; }
         [JsonPropertyName("primary_tag")] 
-        public Tag Tag { get; set; }
+        public Tag PrimaryTag { get; set; }
         [JsonPropertyName("url")] 
         public Uri Url { get; set; }
         [JsonPropertyName("excerpt")] 
