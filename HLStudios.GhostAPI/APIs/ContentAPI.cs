@@ -44,6 +44,7 @@ namespace HLStudios.GhostAPI.APIs
                 requestUri.Append(options.Page != string.Empty ? $"&page={options.Page}" : string.Empty);
                 requestUri.Append(options.Limit != string.Empty ? $"&limit={options.Limit}" : string.Empty);
                 requestUri.Append(options.Filter != string.Empty ? $"&filter={options.Filter}" : string.Empty);
+                requestUri.Append(options.Order != string.Empty ? $"&order={options.Order}" : string.Empty);
             }
 
             return await GetRequestAsync<PostList>(requestUri);
@@ -119,6 +120,7 @@ namespace HLStudios.GhostAPI.APIs
                 requestUri.Append(options.Page != string.Empty ? $"&page={options.Page}" : string.Empty);
                 requestUri.Append(options.Limit != string.Empty ? $"&limit={options.Limit}" : string.Empty);
                 requestUri.Append(options.Filter != string.Empty ? $"&filter={options.Filter}" : string.Empty);
+                requestUri.Append(options.Order != string.Empty ? $"&order={options.Order}" : string.Empty);
             }
 
             return await GetRequestAsync<PageList>(requestUri);
@@ -190,6 +192,7 @@ namespace HLStudios.GhostAPI.APIs
                 requestUri.Append(options.Page != string.Empty ? $"&page={options.Page}" : string.Empty);
                 requestUri.Append(options.Limit != string.Empty ? $"&limit={options.Limit}" : string.Empty);
                 requestUri.Append(options.Filter != string.Empty ? $"&filter={options.Filter}" : string.Empty);
+                requestUri.Append(options.Order != string.Empty ? $"&order={options.Order}" : string.Empty);
             }
 
             return await GetRequestAsync<TagList>(requestUri);
@@ -253,6 +256,7 @@ namespace HLStudios.GhostAPI.APIs
                 requestUri.Append(options.Page != string.Empty ? $"&page={options.Page}" : string.Empty);
                 requestUri.Append(options.Limit != string.Empty ? $"&limit={options.Limit}" : string.Empty);
                 requestUri.Append(options.Filter != string.Empty ? $"&filter={options.Filter}" : string.Empty);
+                requestUri.Append(options.Order != string.Empty ? $"&order={options.Order}" : string.Empty);
             }
 
             return await GetRequestAsync<AuthorList>(requestUri);
