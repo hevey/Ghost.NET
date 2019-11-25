@@ -8,5 +8,6 @@ namespace HLStudios.GhostAPI.Models
         public TagFields Fields { get; set; } = TagFields.None;
         public string Limit { get; set; } = string.Empty;
         public string Page { get; set; } = string.Empty;
+        public string Filter { get; set; } = string.Empty;
     }
 }
