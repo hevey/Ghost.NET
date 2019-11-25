@@ -170,59 +170,125 @@ namespace HLStudios.GhostAPI.APIs
             return pageList.Pages.SingleOrDefault();
         }
         
-        public async Task<TagList> BrowseTagsAsync()
+        public async Task<TagList> BrowseTagsAsync(TagOptions options = null)
         {
             var requestUri = new StringBuilder();
             
             requestUri.Append($"/ghost/api/v3/content/tags/?key={_apiKey}");
+            
+            if (options != null)
+            {
+                requestUri.Append(options.Include != Include.None 
+                    ? $"&include={options.Include.GetDescriptions()}" 
+                    : string.Empty);
+                requestUri.Append(options.Fields != TagFields.None
+                    ? $"&fields={options.Fields.GetDescriptions()}"
+                    : string.Empty);
+                
+                requestUri.Append(options.Page != string.Empty ? $"&page={options.Page}" : string.Empty);
+                requestUri.Append(options.Limit != string.Empty ? $"&limit={options.Limit}" : string.Empty);
+            }
 
             return await GetRequestAsync<TagList>(requestUri);
         }
         
-        public async Task<Tag> ReadTagByIdAsync(string id)
+        public async Task<Tag> ReadTagByIdAsync(string id, TagOptions options = null)
         {
             var requestUri = new StringBuilder();
             
             requestUri.Append($"/ghost/api/v3/content/tags/{id}/?key={_apiKey}");
+            
+            if (options != null)
+            {
+                requestUri.Append(options.Include != Include.None 
+                    ? $"&include={options.Include.GetDescriptions()}" 
+                    : string.Empty);
+                requestUri.Append(options.Fields != TagFields.None
+                    ? $"&fields={options.Fields.GetDescriptions()}"
+                    : string.Empty);
+            }
 
             var tagList = await GetRequestAsync<TagList>(requestUri);
             return tagList.Tags.SingleOrDefault();
         }
         
-        public async Task<Tag> ReadTagBySlugAsync(string slug)
+        public async Task<Tag> ReadTagBySlugAsync(string slug, TagOptions options = null)
         {
             var requestUri = new StringBuilder();
             
             requestUri.Append($"/ghost/api/v3/content/tags/slug/{slug}/?key={_apiKey}");
+            
+            if (options != null)
+            {
+                requestUri.Append(options.Include != Include.None 
+                    ? $"&include={options.Include.GetDescriptions()}" 
+                    : string.Empty);
+                requestUri.Append(options.Fields != TagFields.None
+                    ? $"&fields={options.Fields.GetDescriptions()}"
+                    : string.Empty);
+            }
 
             var tagList = await GetRequestAsync<TagList>(requestUri);
             return tagList.Tags.SingleOrDefault();
         }
         
-        public async Task<AuthorList> BrowseAuthorsAsync()
+        public async Task<AuthorList> BrowseAuthorsAsync(AuthorOptions options = null)
         {
             var requestUri = new StringBuilder();
             
             requestUri.Append($"/ghost/api/v3/content/authors/?key={_apiKey}");
+            
+            if (options != null)
+            {
+                requestUri.Append(options.Include != Include.None 
+                    ? $"&include={options.Include.GetDescriptions()}" 
+                    : string.Empty);
+                requestUri.Append(options.Fields != AuthorFields.None
+                    ? $"&fields={options.Fields.GetDescriptions()}"
+                    : string.Empty);
+                
+                requestUri.Append(options.Page != string.Empty ? $"&page={options.Page}" : string.Empty);
+                requestUri.Append(options.Limit != string.Empty ? $"&limit={options.Limit}" : string.Empty);
+            }
 
             return await GetRequestAsync<AuthorList>(requestUri);
         }
         
-        public async Task<Author> ReadAuthorByIdAsync(string id)
+        public async Task<Author> ReadAuthorByIdAsync(string id, AuthorOptions options = null)
         {
             var requestUri = new StringBuilder();
             
             requestUri.Append($"/ghost/api/v3/content/authors/{id}/?key={_apiKey}");
+            
+            if (options != null)
+            {
+                requestUri.Append(options.Include != Include.None 
+                    ? $"&include={options.Include.GetDescriptions()}" 
+                    : string.Empty);
+                requestUri.Append(options.Fields != AuthorFields.None
+                    ? $"&fields={options.Fields.GetDescriptions()}"
+                    : string.Empty);
+            }
 
             var authorList = await GetRequestAsync<AuthorList>(requestUri);
             return authorList.Authors.SingleOrDefault();
         }
         
-        public async Task<Author> ReadAuthorBySlugAsync(string slug)
+        public async Task<Author> ReadAuthorBySlugAsync(string slug, AuthorOptions options = null)
         {
             var requestUri = new StringBuilder();
             
             requestUri.Append($"/ghost/api/v3/content/authors/slug/{slug}/?key={_apiKey}");
+            
+            if (options != null)
+            {
+                requestUri.Append(options.Include != Include.None 
+                    ? $"&include={options.Include.GetDescriptions()}" 
+                    : string.Empty);
+                requestUri.Append(options.Fields != AuthorFields.None
+                    ? $"&fields={options.Fields.GetDescriptions()}"
+                    : string.Empty);
+            }
 
             var authorList = await GetRequestAsync<AuthorList>(requestUri);
             return authorList.Authors.SingleOrDefault();
