@@ -23,6 +23,6 @@ namespace HLStudios.GhostAPI.Models
         [JsonPropertyName("url")]
         public string Url { get; set; }
         [JsonPropertyName("count")] 
-        public string Count { get; set; }
+        public Count Count { get; set; }
     }
 }
