@@ -31,10 +31,15 @@ namespace HLStudios.GhostAPI.APIs
 
             if (options != null)
             {
-                requestUri.Append(options.Include != Include.None ? 
-                    $"&include={options.Include.GetDescriptions()}" : string.Empty);
-                requestUri.Append(options.Format != Format.None ? 
-                    $"&formats={options.Format.GetDescriptions()}" : string.Empty);
+                requestUri.Append(options.Include != Include.None 
+                    ? $"&include={options.Include.GetDescriptions()}" 
+                    : string.Empty);
+                requestUri.Append(options.Format != Format.None 
+                    ? $"&formats={options.Format.GetDescriptions()}" 
+                    : string.Empty);
+                requestUri.Append(options.Fields != PostFields.None
+                    ? $"&fields={options.Fields.GetDescriptions()}"
+                    : string.Empty);
                 
                 requestUri.Append(options.Page != string.Empty ? $"&page={options.Page}" : string.Empty);
                 requestUri.Append(options.Limit != string.Empty ? $"&limit={options.Limit}" : string.Empty);
@@ -52,10 +57,15 @@ namespace HLStudios.GhostAPI.APIs
             if (options != null)
             {
                 // Adds optional request information to the call.
-                requestUri.Append(options.Include != Include.None ? 
-                    $"&include={options.Include.GetDescriptions()}" : string.Empty);
-                requestUri.Append(options.Format != Format.None ? 
-                    $"&formats={options.Format.GetDescriptions()}" : string.Empty);
+                requestUri.Append(options.Include != Include.None 
+                    ? $"&include={options.Include.GetDescriptions()}" 
+                    : string.Empty);
+                requestUri.Append(options.Format != Format.None 
+                    ? $"&formats={options.Format.GetDescriptions()}" 
+                    : string.Empty);
+                requestUri.Append(options.Fields != PostFields.None
+                    ? $"&fields={options.Fields.GetDescriptions()}"
+                    : string.Empty);
             }
 
             var postList = await GetRequestAsync<PostList>(requestUri);
@@ -71,10 +81,15 @@ namespace HLStudios.GhostAPI.APIs
             if (options != null)
             {
                 // Adds optional request information to the call.
-                requestUri.Append(options.Include != Include.None ? 
-                    $"&include={options.Include.GetDescriptions()}" : string.Empty);
-                requestUri.Append(options.Format != Format.None ? 
-                    $"&formats={options.Format.GetDescriptions()}" : string.Empty);
+                requestUri.Append(options.Include != Include.None 
+                    ? $"&include={options.Include.GetDescriptions()}" 
+                    : string.Empty);
+                requestUri.Append(options.Format != Format.None 
+                    ? $"&formats={options.Format.GetDescriptions()}" 
+                    : string.Empty);
+                requestUri.Append(options.Fields != PostFields.None
+                    ? $"&fields={options.Fields.GetDescriptions()}"
+                    : string.Empty);
             }
 
             var postList = await GetRequestAsync<PostList>(requestUri);
@@ -90,10 +105,15 @@ namespace HLStudios.GhostAPI.APIs
             if (options != null)
             {
                 // Adds optional request information to the call.
-                requestUri.Append(options.Include != Include.None ? 
-                    $"&include={options.Include.GetDescriptions()}" : string.Empty);
-                requestUri.Append(options.Format != Format.None ? 
-                    $"&formats={options.Format.GetDescriptions()}" : string.Empty);
+                requestUri.Append(options.Include != Include.None 
+                    ? $"&include={options.Include.GetDescriptions()}" 
+                    : string.Empty);
+                requestUri.Append(options.Format != Format.None 
+                    ? $"&formats={options.Format.GetDescriptions()}" 
+                    : string.Empty);
+                requestUri.Append(options.Fields != PageFields.None
+                    ? $"&fields={options.Fields.GetDescriptions()}"
+                    : string.Empty);
 
                 requestUri.Append(options.Page != string.Empty ? $"&page={options.Page}" : string.Empty);
                 requestUri.Append(options.Limit != string.Empty ? $"&limit={options.Limit}" : string.Empty);
@@ -111,10 +131,15 @@ namespace HLStudios.GhostAPI.APIs
             if (options != null)
             {
                 // Adds optional request information to the call.
-                requestUri.Append(options.Include != Include.None ? 
-                    $"&include={options.Include.GetDescriptions()}" : string.Empty);
-                requestUri.Append(options.Format != Format.None ? 
-                    $"&formats={options.Format.GetDescriptions()}" : string.Empty);
+                requestUri.Append(options.Include != Include.None 
+                    ? $"&include={options.Include.GetDescriptions()}" 
+                    : string.Empty);
+                requestUri.Append(options.Format != Format.None 
+                    ? $"&formats={options.Format.GetDescriptions()}" 
+                    : string.Empty);
+                requestUri.Append(options.Fields != PageFields.None
+                    ? $"&fields={options.Fields.GetDescriptions()}"
+                    : string.Empty);
             }
 
             var pageList = await GetRequestAsync<PageList>(requestUri);
@@ -130,10 +155,15 @@ namespace HLStudios.GhostAPI.APIs
             if (options != null)
             {
                 // Adds optional request information to the call.
-                requestUri.Append(options.Include != Include.None ? 
-                    $"&include={options.Include.GetDescriptions()}" : string.Empty);
-                requestUri.Append(options.Format != Format.None ? 
-                    $"&formats={options.Format.GetDescriptions()}" : string.Empty);
+                requestUri.Append(options.Include != Include.None 
+                    ? $"&include={options.Include.GetDescriptions()}" 
+                    : string.Empty);
+                requestUri.Append(options.Format != Format.None 
+                    ? $"&formats={options.Format.GetDescriptions()}" 
+                    : string.Empty);
+                requestUri.Append(options.Fields != PageFields.None
+                    ? $"&fields={options.Fields.GetDescriptions()}"
+                    : string.Empty);
             }
             
             var pageList = await GetRequestAsync<PageList>(requestUri);
