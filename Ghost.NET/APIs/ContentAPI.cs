@@ -4,8 +4,11 @@ using System.Net.Http;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
+using GhostNet.Enums;
+using GhostNet.Models;
+using GhostNet.Utilities;
 
-namespace HLStudios.Ghost
+namespace GhostNet.APIs
 {
     public class ContentApi
     {

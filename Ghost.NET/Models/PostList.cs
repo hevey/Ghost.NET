@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
 
-namespace HLStudios.Ghost
+namespace GhostNet.Models
 {
     public class PostList
     {

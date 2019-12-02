@@ -1,7 +1,7 @@
 using System;
 using System.ComponentModel;
 
-namespace HLStudios.Ghost
+namespace GhostNet.Enums
 {
     [Flags]
     public enum Format

@@ -1,4 +1,6 @@
-namespace HLStudios.Ghost
+using GhostNet.Enums;
+
+namespace GhostNet.Models
 {
     public class TagOptions
     {

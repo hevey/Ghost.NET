@@ -99,3 +99,4 @@ modules.xml
 .idea/sonarlint
 
 # End of https://www.gitignore.io/api/dotnetcore,jetbrains+all
+/global.json

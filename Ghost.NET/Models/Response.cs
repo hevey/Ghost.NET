@@ -1,4 +1,4 @@
-namespace HLStudios.Ghost
+namespace GhostNet.Models
 {
     public class Response<T>
     {
