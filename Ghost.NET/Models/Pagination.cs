@@ -17,9 +17,9 @@ namespace GhostNet.Models
         public int Total { get; set; }
 
         [JsonPropertyName("next")]
-        public int Next { get; set; }
+        public int? Next { get; set; }
 
         [JsonPropertyName("prev")]
-        public int Prev { get; set; }
+        public int? Prev { get; set; }
     }
 }

@@ -100,3 +100,5 @@ modules.xml
 
 # End of https://www.gitignore.io/api/dotnetcore,jetbrains+all
 /global.json
+TestApplication/TestApplication.csproj
+TestApplication/Program.cs

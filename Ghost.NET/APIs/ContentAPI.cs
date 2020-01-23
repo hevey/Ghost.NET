@@ -1,6 +1,7 @@
 using System;
 using System.Net;
 using System.Net.Http;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
@@ -14,7 +15,7 @@ namespace GhostNet.APIs
     {
         private readonly HttpClient _httpClient;
         private readonly string _apiKey;
-        
+
         public ContentApi(string url, string apiKey)
         {
             _httpClient = new HttpClient();
@@ -153,7 +154,7 @@ namespace GhostNet.APIs
         {
             var requestUri = new StringBuilder();
             
-            requestUri.Append($"/ghost/api/v3/content/posts/slug/{slug}/?key={_apiKey}");
+            requestUri.Append($"/ghost/api/v3/content/pages/slug/{slug}/?key={_apiKey}");
             
             if (options != null)
             {
@@ -319,14 +320,13 @@ namespace GhostNet.APIs
                     response.StatusCode == HttpStatusCode.NotFound ||
                     response.StatusCode == HttpStatusCode.InternalServerError)
                 {
-
                     return new Response<T>
                     {
                         Content = default,
                         Error = JsonSerializer.Deserialize<ErrorList>(await response.Content.ReadAsStringAsync())
                     };
                 }
-                
+
                 return new Response<T>
                 {
                     Content = JsonSerializer.Deserialize<T>(await response.Content.ReadAsStringAsync()),
