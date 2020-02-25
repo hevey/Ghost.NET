@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.1</TargetFramework>
+        <Nullable>disable</Nullable>
+        <LangVersion>8</LangVersion>
+        <RootNamespace>GhostNet</RootNamespace>
+        <PackageVersion>1.0.0-Alpha.4</PackageVersion>
+        <Title>Ghost.NET</Title>
+        <Copyright>2019</Copyright>
+        <PackageLicenseUrl>https://raw.githubusercontent.com/HeavyLightStudios/Ghost.NET/master/LICENSE</PackageLicenseUrl>
+        <RepositoryUrl>https://github.com/hevey/Ghost.NET</RepositoryUrl>
+        <RepositoryType>Git</RepositoryType>
+        <PackageTags>Ghost CMS</PackageTags>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="System.Text.Json" Version="4.6.0" />
+    </ItemGroup>
+
+</Project>
